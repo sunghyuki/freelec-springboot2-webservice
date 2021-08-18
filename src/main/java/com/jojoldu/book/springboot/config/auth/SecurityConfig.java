@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
-                .antMatchers("/api/v1/**").hasRole(Role.USER.name())
+                .antMatchers("/api/v1/**").hasRole(Role.USER.name()) // 회원가입 시 기본 권한을 게스트로 주었고 게스트는 모든 api 접근이 가능하게 우선 설정해두었다.
                 .anyRequest().authenticated()
                 .and()
                 .logout()
